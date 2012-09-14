@@ -1,0 +1,17 @@
+PROJECT(LD_RPATH_TEST)
+
+SET(CMAKE_BUILD_WITH_INSTALL_RPATH TRUE) 
+SET(CMAKE_INSTALL_RPATH "\$ORIGIN")
+
+ADD_LIBRARY(library SHARED
+    library.c
+)
+
+ADD_EXECUTABLE(executable
+    executable.c
+)
+
+TARGET_LINK_LIBRARIES(executable
+    library
+)
+
